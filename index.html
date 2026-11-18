@@ -1,107 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TL GDPS - Geometry Dash Private Server</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b15">
+<meta name="description" content="TL GDPS — приватный сервер Geometry Dash. Создавай уровни, играй и присоединяйся к сообществу.">
+<title>TL GDPS — Create. Play. Repeat.</title>
+<link rel="icon" type="image/png" href="images/TL%20GDPS.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<canvas id="snowCanvas"></canvas>
-
-<div class="container">
-    <div class="profile-section">
-        <!-- Изображение GDPS -->
-        <div class="gdps-image-container">
-            <div class="gdps-image-wrapper">
-                <img src="https://raw.githubusercontent.com/toolgool2021-coder/TL-GDPS-/refs/heads/main/images/TL%20GDPS.png" alt="TL GDPS" class="gdps-image">
-                <div class="gdps-image-overlay"></div>
-            </div>
-        </div>
-
-        <!-- Название -->
-        <h1 class="server-title">TL GDPS</h1>
-
-        <!-- Описание -->
-        <p class="server-description">Geometry Dash Private Server</p>
-
-        <!-- Вертикальное меню с текстами -->
-        <div class="vertical-menu">
-            <a onclick="openModal('terms')" class="menu-link">
-                Условия использования
-            </a>
-            <a onclick="openModal('about')" class="menu-link">
-                О проекте
-            </a>
-            <a onclick="openModal('license')" class="menu-link">
-                Лицензия
-            </a>
-            <a onclick="openModal('privacy')" class="menu-link">
-                Политика конфиденциальности
-            </a>
-        </div>
-
+<div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div><div class="grid-bg" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+<header class="site-header">
+  <nav class="navigation shell" aria-label="Главная навигация">
+    <a class="brand" href="#home" aria-label="TL GDPS — на главную"><span class="brand-symbol"><span></span><span></span><span></span><span></span></span><span>TL<span class="brand-faded"> / </span>GDPS</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#home">Главная</a><a href="#features">Возможности</a><a href="#community">Сообщество</a><a href="#documents">Документы</a>
     </div>
-</div>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Социальные сети -->
-        <div class="social-links-footer">
-            <a href="https://t.me/Toolgool" class="social-link-footer" title="Telegram" target="_blank">
-                <img src="./images/Telegram.jpg" alt="Telegram">
-            </a>
-            <a href="https://www.tiktok.com/@Toolgool2023" class="social-link-footer" title="TikTok" target="_blank">
-                <img src="./images/Tiktok.jpg" alt="TikTok">
-            </a>
-            <a href="https://www.instagram.com/Toolgool2023" class="social-link-footer" title="Instagram" target="_blank">
-                <img src="./images/Instagram.jpg" alt="Instagram">
-            </a>
-            <a href="https://www.youtube.com/@Toolgool2023" class="social-link-footer" title="YouTube" target="_blank">
-                <img src="./images/YouTube.jpg" alt="YouTube">
-            </a>
-            <a href="https://discord.com/users/Toolgool2023" class="social-link-footer" title="Discord" target="_blank">
-                <img src="./images/Discord.jpg" alt="Discord">
-            </a>
-            <a href="https://vk.com/Toolgool" class="social-link-footer" title="VK" target="_blank">
-                <img src="./images/VK.jpg" alt="VK">
-            </a>
-            <a href="https://www.twitch.tv/Toolgool2023" class="social-link-footer" title="Twitch" target="_blank">
-                <img src="./images/Twitch.jpg" alt="Twitch">
-            </a>
-            <a href="https://x.com/Toolgool2023" class="social-link-footer" title="X" target="_blank">
-                <img src="./images/X.jpg" alt="X">
-            </a>
-            <a href="https://www.facebook.com/Toolgool2023" class="social-link-footer" title="Facebook" target="_blank">
-                <img src="./images/Facebook.jpg" alt="Facebook">
-            </a>
-            <a href="https://www.snapchat.com/add/Toolgool2023" class="social-link-footer" title="Snapchat" target="_blank">
-                <img src="./images/Snapchat.jpg" alt="Snapchat">
-            </a>
-            <a href="https://github.com/toolgool2021-coder/" class="social-link-footer" title="GitHub" target="_blank">
-                <img src="./images/GitHub.jpg" alt="GitHub">
-            </a>
-            <a href="mailto:Toolgool2021@gmail.com" class="social-link-footer" title="Gmail" target="_blank">
-                <img src="./images/Gmail.jpg" alt="Gmail">
-            </a>
-        </div>
-
-        <!-- Footer текст -->
-        <div class="footer-text">
-            <p>&copy; 2024-2026 TL GDPS. All rights reserved.</p>
-        </div>
+    <a class="header-contact" href="https://t.me/Toolgool" target="_blank" rel="noopener noreferrer">Связаться <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<main id="home">
+<section class="hero shell">
+  <div class="hero-copy" data-reveal>
+    <div class="eyebrow"><span class="eyebrow-dot"></span> THE NEXT LEVEL OF GDPS <span class="eyebrow-line"></span> BY TOOLGOOL</div>
+    <h1>ТВОЯ ИГРА.<br><span>ТВОИ ПРАВИЛА.</span></h1>
+    <p class="hero-description">Больше, чем просто приватный сервер Geometry Dash. Место для твоих уровней, идей и новых игровых впечатлений.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#features">Исследовать сервер <span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="https://t.me/Toolgool" target="_blank" rel="noopener noreferrer">Наше сообщество <span aria-hidden="true">→</span></a>
     </div>
-</footer>
-
-<!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
-
+    <div class="hero-footnote"><span class="line-icon" aria-hidden="true">✦</span> CREATE <span class="sep">/</span> PLAY <span class="sep">/</span> REPEAT <span class="hero-footnote-right">EST. BY TL</span></div>
+  </div>
+  <div class="hero-art" data-reveal aria-label="Логотип TL GDPS">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="art-glow"></div>
+    <div class="art-panel" id="tilt-panel">
+      <div class="art-panel-top"><span>PROJECT // 001</span><span class="corner-plus">+</span></div>
+      <img src="images/TL%20GDPS.png" alt="Официальное изображение TL GDPS" class="hero-logo" fetchpriority="high">
+      <div class="art-panel-bottom"><span>TL GDPS</span><span>PRIVATE SERVER<br>GEOMETRY DASH</span></div>
+    </div>
+    <span class="float-tag tag-one">LEVEL UP <b>↗</b></span>
+    <span class="float-tag tag-two"><span class="mini-dot"></span> PLAYER WORLD</span>
+    <div class="art-index">01 <span>/ 03</span></div>
+  </div>
+</section>
+<div class="ticker" aria-label="Создавай. Играй. Повторяй."><div class="ticker-track">TL GDPS <span>✳</span> CREATE YOUR WORLD <span>✳</span> PLAY WITHOUT LIMITS <span>✳</span> TL GDPS <span>✳</span> CREATE YOUR WORLD <span>✳</span> PLAY WITHOUT LIMITS <span>✳</span></div></div>
+<section class="section shell" id="features">
+  <div class="section-heading" data-reveal><div><p class="section-kicker">01 / ВОЗМОЖНОСТИ</p><h2>ВСЁ НАЧИНАЕТСЯ<br>С <em>ТВОЕЙ ИДЕИ.</em></h2></div><p class="section-side">Создавай, делись и открывай новые возможности вместе с TL GDPS.</p></div>
+  <div class="features-grid">
+    <article class="feature-card feature-primary" data-reveal><div class="feature-top"><span>01 — CREATIVITY</span><span class="feature-arrow">↗</span></div><div class="feature-icon icon-cube"><span></span></div><div><h3>Создавай уровни</h3><p>Воплощай свои задумки в редакторе и делись результатом с другими игроками.</p></div></article>
+    <article class="feature-card" data-reveal><div class="feature-top"><span>02 — COMMUNITY</span><span class="feature-arrow">↗</span></div><div class="feature-icon icon-players"><i></i><i></i><i></i></div><div><h3>Играй вместе</h3><p>Общайся с участниками, открывай их работы и находи вдохновение.</p></div></article>
+    <article class="feature-card" data-reveal><div class="feature-top"><span>03 — EXPERIENCE</span><span class="feature-arrow">↗</span></div><div class="feature-icon icon-zap">ϟ</div><div><h3>Открывай новое</h3><p>Участвуй в жизни проекта и следи за событиями и обновлениями сообщества.</p></div></article>
+  </div>
+</section>
+<section class="community shell" id="community" data-reveal>
+  <div class="community-art" aria-hidden="true"><div class="community-rings"></div><div class="community-center">TL<span>GDPS</span></div><span class="community-star star-a">✳</span><span class="community-star star-b">✳</span></div>
+  <div class="community-content"><p class="section-kicker">02 / COMMUNITY</p><h2>БОЛЬШЕ, ЧЕМ<br><em>ПРОСТО ИГРА.</em></h2><p>У каждого уровня есть автор. У каждого игрока — своя история. Присоединяйся к миру TL GDPS и стань частью сообщества.</p><a class="button button-primary" href="https://t.me/Toolgool" target="_blank" rel="noopener noreferrer">Присоединиться <span aria-hidden="true">↗</span></a></div>
+</section>
+<section class="section docs-section shell" id="documents">
+  <div class="section-heading" data-reveal><div><p class="section-kicker">03 / ИНФОРМАЦИЯ</p><h2>ВАЖНО <em>ЗНАТЬ.</em></h2></div><p class="section-side">Прозрачные правила и информация о проекте — всё в одном месте.</p></div>
+  <div class="document-grid" data-reveal>
+    <button type="button" class="document-link" data-modal="about"><span class="doc-index">01</span><span class="doc-name">О проекте</span><span class="doc-arrow">↗</span></button>
+    <button type="button" class="document-link" data-modal="terms"><span class="doc-index">02</span><span class="doc-name">Условия использования</span><span class="doc-arrow">↗</span></button>
+    <button type="button" class="document-link" data-modal="privacy"><span class="doc-index">03</span><span class="doc-name">Конфиденциальность</span><span class="doc-arrow">↗</span></button>
+    <button type="button" class="document-link" data-modal="license"><span class="doc-index">04</span><span class="doc-name">Лицензия и соглашение</span><span class="doc-arrow">↗</span></button>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="shell">
+  <div class="footer-top"><div><a class="brand footer-brand" href="#home"><span class="brand-symbol"><span></span><span></span><span></span><span></span></span><span>TL<span class="brand-faded"> / </span>GDPS</span></a><p>Создавай свой мир. Играй по-своему.</p></div><a href="#home" class="back-top">Наверх ↑</a></div>
+  <p class="footer-social-title">НАЙТИ НАС В СОЦИАЛЬНЫХ СЕТЯХ</p>
+  <div class="social-grid"><a href="https://t.me/Toolgool" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><img src="images/Telegram.jpg" alt="" loading="lazy"><span>Telegram</span></a>
+<a href="https://www.tiktok.com/@Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><img src="images/Tiktok.jpg" alt="" loading="lazy"><span>TikTok</span></a>
+<a href="https://www.instagram.com/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><img src="images/Instagram.jpg" alt="" loading="lazy"><span>Instagram</span></a>
+<a href="https://www.youtube.com/@Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><img src="images/YouTube.jpg" alt="" loading="lazy"><span>YouTube</span></a>
+<a href="https://discord.com/users/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="Discord" title="Discord"><img src="images/Discord.jpg" alt="" loading="lazy"><span>Discord</span></a>
+<a href="https://vk.com/Toolgool" target="_blank" rel="noopener noreferrer" aria-label="VK" title="VK"><img src="images/VK.jpg" alt="" loading="lazy"><span>VK</span></a>
+<a href="https://www.twitch.tv/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="Twitch" title="Twitch"><img src="images/Twitch.jpg" alt="" loading="lazy"><span>Twitch</span></a>
+<a href="https://x.com/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="X" title="X"><img src="images/X.jpg" alt="" loading="lazy"><span>X</span></a>
+<a href="https://www.facebook.com/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><img src="images/Facebook.jpg" alt="" loading="lazy"><span>Facebook</span></a>
+<a href="https://www.snapchat.com/add/Toolgool2023" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" title="Snapchat"><img src="images/Snapchat.jpg" alt="" loading="lazy"><span>Snapchat</span></a>
+<a href="https://github.com/toolgool2021-coder/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><img src="images/GitHub.jpg" alt="" loading="lazy"><span>GitHub</span></a>
+<a href="mailto:Toolgool2021@gmail.com" target="_self"  aria-label="Gmail" title="Gmail"><img src="images/Gmail.jpg" alt="" loading="lazy"><span>Gmail</span></a></div>
+  <div class="footer-bottom"><span>© 2024–2026 TL GDPS. All rights reserved.</span><span>MADE BY TOOLGOOL <b>✳</b></span></div>
+</div></footer>
 <!-- Условия использования -->
 <div id="terms" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('terms')">&times;</span>
+        <button type="button" class="close-btn" aria-label="Закрыть" onclick="closeModal('terms')">&times;</button>
         <h2>⚡ Условия использования GDPS TL by Toolgool</h2>
         
         <p><strong>📜 1. Общие положения</strong><br>
@@ -177,7 +169,7 @@
 <!-- О проекте -->
 <div id="about" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('about')">&times;</span>
+        <button type="button" class="close-btn" aria-label="Закрыть" onclick="closeModal('about')">&times;</button>
         <h2>📌 О проекте GDPS TL</h2>
         
         <p><strong>GDPS TL — это приватный сервер Geometry Dash, созданный для игроков, которые хотят:</strong><br>
@@ -195,7 +187,7 @@
 <!-- Лицензия -->
 <div id="license" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('license')">&times;</span>
+        <button type="button" class="close-btn" aria-label="Закрыть" onclick="closeModal('license')">&times;</button>
         <h2>📑 Лицензия / Пользовательское соглашение (EULA)</h2>
         
         <p>Вы получаете право пользоваться GDPS TL, но <strong>не обладаете правами собственности</strong> на сервер, его ресурсы или контент.</p>
@@ -216,7 +208,7 @@
 <!-- Политика конфиденциальности -->
 <div id="privacy" class="modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('privacy')">&times;</span>
+        <button type="button" class="close-btn" aria-label="Закрыть" onclick="closeModal('privacy')">&times;</button>
         <h2>🔒 Политика конфиденциальности</h2>
         
         <p>GDPS TL <strong>не собирает личные данные</strong> игроков.</p>
@@ -232,6 +224,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+
+<script src="script.js" defer></script>
+</body></html>
